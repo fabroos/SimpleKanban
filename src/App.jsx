@@ -5,46 +5,9 @@ import Confeti from "./components/Confeti";
 import Form from "./components/Form";
 import Row from "./components/Row";
 import { useTasks } from "./hooks/useTasks";
-const initialList = [
-  {
-    title: "End this homework Pls bro",
-    description:
-      "saklda sldjalsd jlksajdsdsdds kjsadjlashldhsdsdsd sssadhsadhas hdkljsahdjk sahdkjsadhsakd hasjdhaskjdhsa jkdhksahdja shdjkh ksajdlks",
-    name: "Fabrizio Signoretta",
-    category: "Work",
-    id: "1234",
-    row: "toDo",
-  },
-  {
-    title: "JSAJDS Pls bro",
-    description:
-      "fffff kjsadjlashldhsdsdsd sssadhsadhas hdkljsahdjk sahdkjsadhsakd hasjdhaskjdhsa jkdhksahdja shdjkh ksajdlks",
-    name: "Juan Signoretta",
-    category: "Work",
-    id: "4567",
-    row: "toDo",
-  },
-  {
-    title: "JSAJDS Pls bro",
-    description:
-      "fffff kjsadjlashldhsdsdsd sssadhsadhas hdkljsahdjk sahdkjsadhsakd hasjdhaskjdhsa jkdhksahdja shdjkh ksajdlks",
-    name: "Juan Signoretta",
-    category: "Work",
-    id: "4567",
-    row: "toDo",
-  },
-  {
-    title: "JSAJDS Pls bro",
-    description:
-      "fffff kjsadjlashldhsdsdsd sssadhsadhas hdkljsahdjk sahdkjsadhsakd hasjdhaskjdhsa jkdhksahdja shdjkh ksajdlks",
-    name: "Juan Signoretta",
-    category: "Work",
-    id: "4567",
-    row: "toDo",
-  },
-];
+
 function App() {
-  const todo = useTasks(initialList);
+  const todo = useTasks([]);
   const doing = useTasks([]);
   const finished = useTasks([]);
   const [congrats, setCongrats] = useState(false);
