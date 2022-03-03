@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
-import Checked from "./components/Checked";
 import Confeti from "./components/Confeti";
 import Form from "./components/Form";
 import Row from "./components/Row";
