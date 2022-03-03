@@ -56,15 +56,15 @@ function App() {
   //__________________________________//
   return (
     <div className="App bg-slate-100 min-h-screen h-full dark:bg-gray-900">
+      <div className="absolute h-screen w-screen">
+        <Form setter={todo.setTasks} />
+      </div>
       <header>
         <h1 className=" dark:text-white md:text-3xl py-1 px-3 font-bold">
           Simple Kanban
         </h1>
       </header>
-      <div className="flex flex-col px-10 py-4 text-xl font-bold">
-        <h2 className="dark:text-white">Form</h2>
-        <Form setter={todo.setTasks} />
-      </div>
+
       <Confeti run={congrats} />
       <div className="grid p-10 grid-cols-1 divide-gray-200 dark:divide-gray-800 divide-x min-h-full sm:grid-cols-3">
         <Row

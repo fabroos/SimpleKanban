@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
 export default function Form({ setter }) {
+  const [error, setError] = useState(false);
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (title.length < 1 && name.length < 1) {
+      return setError(true);
+    }
     setter((tasks) => [
       ...tasks,
       {
@@ -16,6 +20,7 @@ export default function Form({ setter }) {
         id: crypto.randomUUID(),
       },
     ]);
+    setError(false);
     setTitle("");
     setName("");
     setDesc("");
@@ -25,9 +30,9 @@ export default function Form({ setter }) {
     <>
       <button
         onClick={() => setView(!view)}
-        className=" px-2 py-0.5 font-bold rounded hover:bg-yellow-300 bg-yellow-100 max-w-fit"
+        className=" font-bold rounded-full z-20 absolute bottom-5 right-5 hover:bg-pink-500/90 bg-pink-500 w-14 h-14 text-2xl flex justify-center items-center"
       >
-        Open Form
+        +
       </button>
       <div
         className={`absolute top-0 left-0 w-screen h-screen grid place-content-center bg-black/50 ${
@@ -38,7 +43,7 @@ export default function Form({ setter }) {
           onSubmit={(e) => {
             handleSubmit(e);
           }}
-          className="gap-2 relative flex items-center  flex-col z-10 bg-white px-10 py-5 dark:bg-slate-800 rounded"
+          className="gap-2 flex items-center  flex-col z-10 w-full h-full bg-white px-10 py-5 dark:bg-slate-800 rounded"
         >
           <button
             className="absolute top-2 right-2 dark:text-white cursor-pointer"
@@ -71,10 +76,15 @@ export default function Form({ setter }) {
             value={name}
           />
           <input
-            className="px-4 py-1 bg-yellow-200 rounded"
+            className="px-4 py-1 bg-pink-500 hover:bg-pink-500/90 cursor-pointer rounded"
             type="submit"
             value="Submit"
           />
+          {error && (
+            <p className="text-red-400 text-sm font-light">
+              Task must have a correct name and title
+            </p>
+          )}
         </form>
       </div>
     </>
