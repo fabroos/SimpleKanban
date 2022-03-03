@@ -5,8 +5,10 @@ export default function Form({ setter }) {
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(false);
     if (title.length < 1 && name.length < 1) {
       return setError(true);
     }
@@ -20,7 +22,6 @@ export default function Form({ setter }) {
         id: crypto.randomUUID(),
       },
     ]);
-    setError(false);
     setTitle("");
     setName("");
     setDesc("");
@@ -43,7 +44,7 @@ export default function Form({ setter }) {
           onSubmit={(e) => {
             handleSubmit(e);
           }}
-          className="gap-2 flex items-center  flex-col z-10 w-full h-full bg-white px-10 py-5 dark:bg-slate-800 rounded"
+          className="gap-2 flex items-center relative  flex-col z-10 w-full h-full bg-white px-10 py-5 dark:bg-slate-800 rounded"
         >
           <button
             className="absolute top-2 right-2 dark:text-white cursor-pointer"

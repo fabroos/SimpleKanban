@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
+import Checked from "./components/Checked";
 import Confeti from "./components/Confeti";
 import Form from "./components/Form";
 import Row from "./components/Row";
@@ -64,7 +65,6 @@ function App() {
           Simple Kanban
         </h1>
       </header>
-
       <Confeti run={congrats} />
       <div className="grid p-10 grid-cols-1 divide-gray-200 dark:divide-gray-800 divide-x min-h-full sm:grid-cols-3">
         <Row
