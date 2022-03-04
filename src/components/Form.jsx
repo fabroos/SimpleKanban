@@ -28,14 +28,15 @@ export default function Form({ setter }) {
   };
   const [view, setView] = useState(false);
   return (
-    <>
+    <div  className="absolute h-screen w-screen" onClick={(e)=> e.target.getAttribute("id") === "modalClose" ? setView(false) : null}>
+
       <button
         onClick={() => setView(!view)}
         className=" font-bold rounded-full z-20 absolute bottom-5 right-5 hover:bg-pink-500/90 bg-pink-500 w-14 h-14 text-2xl flex justify-center items-center"
       >
         +
       </button>
-      <div
+      <div id="modalClose"
         className={`absolute top-0 left-0 w-screen h-screen grid place-content-center bg-black/50 ${
           view ? "" : "hidden"
         }`}
@@ -88,6 +89,6 @@ export default function Form({ setter }) {
           )}
         </form>
       </div>
-    </>
+    </div>
   );
 }

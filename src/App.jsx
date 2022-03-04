@@ -19,9 +19,9 @@ function App() {
   //__________________________________//
   return (
     <div className="App bg-slate-100 min-h-screen h-full dark:bg-gray-900">
-      <div className="absolute h-screen w-screen">
+     
         <Form setter={todo.setTasks} />
-      </div>
+        
       <header>
         <h1 className=" dark:text-white md:text-3xl py-1 px-3 font-bold">
           Simple Kanban

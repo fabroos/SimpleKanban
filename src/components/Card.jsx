@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import CardInfo from "./CardInfo";
-import Confeti from "./Confeti";
 import NextSvg from "./NextSvg";
 import RemoveSvg from "./RemoveSvg";
 
