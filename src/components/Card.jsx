@@ -4,7 +4,7 @@ import NextSvg from "./NextSvg";
 import RemoveSvg from "./RemoveSvg";
 
 export default function Card({ id, setter, type, congrats, ...rest }) {
-  function handleClick() {
+  function handleNext() {
     console.log(!!setter[0]);
     if (setter[0]) {
       let index = type.findIndex((card) => card.id == id);
@@ -23,16 +23,22 @@ export default function Card({ id, setter, type, congrats, ...rest }) {
   }
 
   return (
-    <>
+    <> 
       <div className="card flex flex-col px-4 py-2 m-2 relative bg-white dark:bg-slate-700 rounded ">
         <CardInfo {...rest} />
-        <div
-          onClick={handleClick}
-          className={`opacity-0 bg-gradient-to-l  to-white/5 absolute right-0 px-5 top-0 hover:opacity-80 h-full w-full transition-all cursor-pointer flex items-center justify-center ${
-            setter[0] ? "from-green-300/50" : "from-yellow-300/50"
-          }`}
-        >
-          {setter[0] ? <NextSvg /> : "🎉"}
+        <div className="flex absolute top-0 left-0 w-full h-full" >
+        <div className="opacity-0 bg-gradient-to-r w-1/4  to-transparent rounded-l right-0 px-5 top-0 hover:opacity-80 transition-all cursor-pointer flex items-center justify-center from-red-400">
+            <RemoveSvg />
+          </div>
+          <div
+            onClick={handleNext}
+            className={`opacity-0 bg-gradient-to-l w-3/4  to-transparent right-0 px-5 top-0 hover:opacity-80 rounded-r  transition-all cursor-pointer flex items-center justify-center ${
+              setter[0] ? "from-green-300/50" : "from-yellow-300/50"
+            }`}
+          >
+            {setter[0] ? <NextSvg /> : "🎉"}
+          </div>
+          
         </div>
       </div>
     </>
